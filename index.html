@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+
+<body>
+  <main>
+    <section class="section-calculator-bg">
+      <div class="form">
+        <form class="form__row">
+          <div class="form__row-input">
+            <label for="form__input-day">day</label>
+            <input type="number" name="days" placeholder="DD" id="form__input-day" class="form__input">
+            <label class="error-message"></label>
+          </div>
+          <div class="form__row-input">
+            <label for="form__input-month">month</label>
+            <input type="number" name="months" placeholder="MM" id="form__input-month" class="form__input">
+            <label class="error-message"></label>
+          </div>
+          <div class="form__row-input">
+            <label for="form__input-year">year</label>
+            <input type="number" name="years" placeholder="YYYY" id="form__input-year" class="form__input">
+            <label class="error-message"></label>
+          </div>
+        </form>
+      </div>
+
+      <div class="submit">
+        <hr>
+        <button type="submit" class="submit__arrow">
+          <img src="assets/images/icon-arrow.svg" alt="Arrow icon">
+        </button>
+      </div>
+
+      <div class="form__result">
+        <div class="form__result-content form__result-content--1"><span>--</span><span>years</span></div>
+        <div class="form__result-content form__result-content--2"><span>--</span><span>months</span></div>
+        <div class="form__result-content form__result-content--3"><span>--</span><span>days</span></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+
+</html>

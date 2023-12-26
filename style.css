@@ -1,0 +1,160 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-neutral: hsl(0, 0%, 100%);
+  --color-off-neutral: hsl(0, 0%, 94%);
+  --color-light-grey: hsl(0, 0%, 86%);
+  --color-smokey-grey: hsl(0, 1%, 44%);
+  --color-off-black: hsl(0, 0%, 8%);
+
+  --color-purple: hsl(259, 100%, 65%);
+  --color-light-red: hsl(0, 100%, 67%);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 31.25%;
+  }
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+}
+
+main {
+  background-color: var(--color-off-neutral);
+  padding: 10rem 0;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-calculator-bg {
+  background-color: var(--color-neutral);
+  border-radius: 3rem 3rem 10rem 3rem;
+  padding: 5rem;
+  width: 70rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.form,
+.submit,
+.form__result {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.form__row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  position: relative;
+}
+
+.form__row-input {
+  flex: 0 0 auto;
+  width: 25%;
+}
+
+.form__row-input label:nth-child(1) {
+  text-transform: uppercase;
+}
+
+.form__input {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-off-black);
+
+  display: block;
+  width: 100%;
+  height: 5rem;
+
+  padding: 3.5rem 2rem;
+  border: 1px solid var(--color-smokey-grey);
+  border-radius: 5px;
+  outline: none;
+  margin-top: 1rem;
+}
+
+.form__input:hover {
+  cursor: pointer;
+}
+
+.form__input:focus {
+  border: 1px solid var(--color-purple);
+  color: var(--color-off-black);
+}
+
+.submit {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.submit hr {
+  flex: 0 0 auto;
+  width: 85%;
+}
+
+.submit__arrow {
+  background-color: var(--color-purple);
+  padding: 2rem;
+  border-radius: 50%;
+  border: none;
+}
+
+.form__result-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form__result-content span {
+  font-size: 8rem;
+  font-style: italic;
+  font-weight: 800;
+  display: block;
+}
+
+.form__result-content span:nth-child(1) {
+  color: var(--color-purple);
+}
+
+/* JavaScript Component Style */
+.red-border {
+  border: 1px solid var(--color-light-red);
+}
+
+.text-color-red {
+  color: var(--color-light-red);
+  transition: color 1s;
+}
+
+.error-message {
+  font-size: 1.3rem;
+  color: var(--color-light-red);
+
+  position: absolute;
+  bottom: -2rem;
+}
