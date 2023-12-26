@@ -35,8 +35,9 @@ const checkValues = function () {
   inputUserArr.forEach(data => {
 
     if (document.querySelector(`#${data.id}`) === inputDay) {
+      // const actualMonthValue =
 
-      const totalDaysInMonth = getMonthTotalDay(+inputYear.value, +inputMonth.value.slice(1)).getUTCDate();
+      const totalDaysInMonth = getMonthTotalDay(+inputYear.value, +inputMonth.value).getUTCDate();
 
       if (+inputDay.value < 0) inputDay.nextElementSibling.textContent = 'Must be a valid day';
       if (+inputDay.value > totalDaysInMonth) inputDay.nextElementSibling.textContent = 'Must be a valid day';
@@ -66,29 +67,30 @@ const checkValues = function () {
   })
 }
 
+const updateResult = function (year, month, day) {
+  document.querySelector('.form__result-content--1 > span').textContent = year;
+  document.querySelector('.form__result-content--2 > span').textContent = month;
+  document.querySelector('.form__result-content--3 > span').textContent = day;
+}
+
 // Event Listener Submit
 arrow.addEventListener('click', function () {
   checkValues();
   errorMessage();
 
-  // Check if date is true
-
   const filterLabelArr = errorLabelArray.filter(label => label.textContent !== ''); 4
   if (filterLabelArr.length > 0) return;
 
   const date = new Date();
-  const calcDays = 365 - +inputDay.value;
+  const calcDays = Math.abs(date.getUTCDate() - +inputDay.value);
   const calcMonths = date.getUTCMonth() - +inputMonth.value;
   const calcYears = date.getUTCFullYear() - +inputYear.value;
 
-  console.log(calcYears, date.getUTCFullYear());
-
   // render age
-  const formResult1 = document.querySelector('.form__result-content--1 > span');
-  const formResult2 = document.querySelector('.form__result-content--2 > span');
-  const formResult3 = document.querySelector('.form__result-content--3 > span');
+  updateResult(calcYears, calcMonths, calcDays)
+  inputDay.value = inputMonth.value = inputYear.value = '';
+})
 
-  formResult1.textContent = calcYears;
-  formResult2.textContent = calcMonths;
-  console.log(calcDays);
+inputDay.addEventListener('focus', function () {
+  updateResult('--', '--', '--');
 })
