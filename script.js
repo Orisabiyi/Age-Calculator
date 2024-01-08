@@ -87,10 +87,19 @@ arrow.addEventListener('click', function () {
   const calcYears = date.getUTCFullYear() - +inputYear.value;
 
   // render age
-  updateResult(calcYears, calcMonths, calcDays)
+  if (calcMonths < -1) {
+    const absYear = calcYears - 1;
+    const absMonth = 12 - Math.abs(calcMonths);
+    updateResult(absYear, absMonth, calcDays);
+  } else {
+    updateResult(calcYears, calcMonths, calcDays);
+  }
+
   inputDay.value = inputMonth.value = inputYear.value = '';
 })
 
 inputDay.addEventListener('focus', function () {
   updateResult('--', '--', '--');
 })
+
+console.log(new Date().getUTCMonth() - 3);
